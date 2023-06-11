@@ -39,7 +39,7 @@ int main(){
     const size_t W = 400;
     const size_t H = 400;
 
-    const double E_SIZE = 10;
+    const double E_SIZE = 1;
 
     const double K_MIN = 0;
     const double I_MIN = 1e-9;
@@ -47,7 +47,7 @@ int main(){
     dplib::Window window(window_width, window_height, W, H, "test3 - psi");
 
     dplib::print_line("Creating mesh...");
-    dplib::RectangularMesh mesh(W, H, 2.0, E_SIZE);
+    dplib::RectangularMesh mesh(W, H, 1.0, E_SIZE);
 
     mesh.apply_Dirichlet(1, {0,0,0}, {W+1,0,0});
     mesh.apply_Dirichlet(1, {W+1,0,0}, {W+1,H+1,0});

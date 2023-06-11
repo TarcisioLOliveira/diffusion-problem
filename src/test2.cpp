@@ -39,17 +39,17 @@ int main(){
     const size_t W = 400;
     const size_t H = 400;
 
-    const double E_SIZE = 10;
+    const double E_SIZE = 1;
 
     const double K_MIN = 1e-9;
 
     dplib::Window window(window_width, window_height, W, H, "test2 - psi");
 
     dplib::print_line("Creating mesh...");
-    dplib::RectangularMesh mesh(W, H, 2.0, E_SIZE);
+    dplib::RectangularMesh mesh(W, H, 1.0, E_SIZE);
 
     mesh.apply_Dirichlet(0, {0,0,0}, {0,H+1,0});
-    mesh.apply_Neumann(2, {W+1,0,0}, {W+1,H+1,0});
+    mesh.apply_Neumann(1, {W+1,0,0}, {W+1,H+1,0});
 
     dplib::print_line("Generating global matrix...");
     mesh.generate_K(K_MIN);
