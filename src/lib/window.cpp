@@ -100,18 +100,8 @@ void Window::update(const std::vector<double>& mesh, const double min_x, const d
     this->update(min_x, max_x);
 }
 
-void Window::update(const double min_x, const double max_x){
+void Window::update(){
     sf::Event event;
-
-    std::stringstream stream;
-    stream << std::fixed << std::setprecision(3) << min_x;
-    std::string s = stream.str();
-    this->text_min.setString(s);
-    stream.str(std::string());
-    stream << std::fixed << std::setprecision(3) << max_x;
-    s = stream.str();
-    this->text_max.setString(s);
-
     size_t offset = (window_width - W - legend_width)/3;
     while (window.pollEvent(event)){
         if (event.type == sf::Event::Closed){
@@ -125,11 +115,23 @@ void Window::update(const double min_x, const double max_x){
      
             window_height = event.size.height;
 
-            //sprite.setPosition(sf::Vector2f(window_width/2-W/2, window_height/2-H/2));
             sprite.setPosition(sf::Vector2f(2*offset + legend_width, window_height/2-H/2));
             this->legend.setPosition(sf::Vector2f(offset, window_height/2-legend_height/2));
         }
     }
+}
+
+void Window::update(const double min_x, const double max_x){
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(3) << min_x;
+    std::string s = stream.str();
+    this->text_min.setString(s);
+    stream.str(std::string());
+    stream << std::fixed << std::setprecision(3) << max_x;
+    s = stream.str();
+    this->text_max.setString(s);
+
+    size_t offset = (window_width - W - legend_width)/3;
     this->text_max.setPosition(offset + legend_width/2 - text_max.getGlobalBounds().width/2, window_height/2 - H/2 - text_max.getGlobalBounds().height - 16);
     this->text_min.setPosition(offset + legend_width/2 - text_min.getGlobalBounds().width/2, window_height/2 + H/2);
     window.clear(sf::Color(201,190,210));

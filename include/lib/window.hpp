@@ -39,6 +39,7 @@ class Window{
     };
     Window(size_t window_width, size_t window_height, size_t mesh_width, size_t mesh_height, std::string name);
 
+    void update();
     void update(const std::vector<double>& mesh);
     void update(const std::vector<double>& mesh, const double min_x, const double max_x);
     void save_image();

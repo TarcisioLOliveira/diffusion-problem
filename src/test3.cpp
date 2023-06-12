@@ -70,8 +70,9 @@ int main(){
     double minx = *std::min_element(result.begin(), result.end());
 
     std::cout << minx << " " << maxx << std::endl;
+    window.update(result, 0, 1);
     do{
-        window.update(result, 0, 1);
+        window.update();
     } while(window.is_open());
 
     return 0;
