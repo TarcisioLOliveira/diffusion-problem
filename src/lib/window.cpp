@@ -132,8 +132,8 @@ void Window::update(const double min_x, const double max_x){
     this->text_max.setString(s);
 
     size_t offset = (window_width - W - legend_width)/3;
-    this->text_max.setPosition(offset + legend_width/2 - text_max.getGlobalBounds().width/2, window_height/2 - H/2 - text_max.getGlobalBounds().height - 16);
-    this->text_min.setPosition(offset + legend_width/2 - text_min.getGlobalBounds().width/2, window_height/2 + H/2);
+    this->text_max.setPosition(offset + legend_width/2 - text_max.getGlobalBounds().width/2, window_height/2 - legend_height/2 - text_max.getGlobalBounds().height - 16);
+    this->text_min.setPosition(offset + legend_width/2 - text_min.getGlobalBounds().width/2, window_height/2 + legend_height/2);
     window.clear(sf::Color(201,190,210));
 
     img.update(this->pixels.data());
