@@ -117,6 +117,16 @@ void Window::update(){
 
             sprite.setPosition(sf::Vector2f(2*offset + legend_width, window_height/2-H/2));
             this->legend.setPosition(sf::Vector2f(offset, window_height/2-legend_height/2));
+
+            this->text_max.setPosition(offset + legend_width/2 - text_max.getGlobalBounds().width/2, window_height/2 - legend_height/2 - text_max.getGlobalBounds().height - 16);
+            this->text_min.setPosition(offset + legend_width/2 - text_min.getGlobalBounds().width/2, window_height/2 + legend_height/2);
+            window.clear(sf::Color(201,190,210));
+
+            window.draw(sprite);
+            window.draw(legend);
+            window.draw(text_max);
+            window.draw(text_min);
+            window.display();
         }
     }
 }
