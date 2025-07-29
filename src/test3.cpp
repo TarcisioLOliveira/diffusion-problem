@@ -19,15 +19,11 @@
  */
 
 #include <algorithm>
-#include <numeric>
-#include <iomanip>
 #include <cblas.h>
 #include "lib/print.hpp"
-#include "lib/Q4.hpp"
 #include "lib/window.hpp"
 #include "lib/mesh.hpp"
 #include "lib/sparse_matrix.hpp"
-#include "lib/eigen.hpp"
 
 int main(){
     Eigen::initParallel();
